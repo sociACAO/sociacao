@@ -1,0 +1,21 @@
+#coding: utf-8
+
+DEBUG = True
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'sociacao.db',
+
+    }
+}
+
+ALLOWED_HOSTS = ['*']
+
+MEDIA_ROOT = ''
+
+MEDIA_URL = '/media/'
+
+STATIC_ROOT = ''
+
+STATIC_URL = '/static/'
