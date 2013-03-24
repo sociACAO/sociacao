@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/estilo.css" rel="stylesheet" media="screen">
+    <style type="text/css">
+.venda {
+  color: #f4f4f4;
+}
+
+.linha, .linha-b {
+  margin: 5px 0 0;
+  padding: 5px 10px;
+}
+
+.linha:hover {
+  background: rgba(255,255,255,0.025);
+}
+
+.camisa {
+  text-align: center;
+}
+
+.camisa input {
+  width: 80%;
+  margin-top: 5px;
+}
+
+.pergunta {
+  font-weight: 700;
+}
+    </style>
+  </head>
+  <body>
+
+    <div class="menu">
+        <div class="menu-container">
+            <ul>
+                <li class="logo"><a href="/"><img src="http://www.sociacao.org/static/img/logo.fw.png" /></a></li>
+            </ul>            
+        </div>
+    </div>
+
+
+    <div class="container venda">
+      <h1>Venda de Camisas</h1>
+<form class="form-compra" action="/compra/" method="POST">
+    <div style="display:none"><input type="hidden" name="csrfmiddlewaretoken" value="TEf766m3l76auQTd32Y3xoyyVYjqgfkj"></div>
+    <div class="linha row">
+        <p>Você está ciente de que só poderá prencher esse form caso já tenha efetuado o pagamento da camisa e que esse pagamento só poderá ser feito até o dia 5 de março?</p>
+<label class="radio inline">
+  <input type="radio" name="ciente" value="1">
+  Sim
+</label>
+<label class="radio inline">
+  <input type="radio" name="ciente" value="2" checked>
+  Não
+</label>
+    </div>
+
+    <div class="linha row">
+      <label for="nome" class="pergunta">Seu nome:</label>
+      <input class="input-xxlarge" title= "Nome completo" type="text" name="nome" placeholder="Nome completo" id="nome" required>
+    </div>
+
+    <div class="linha row">
+      <label for="email" class="pergunta">Seu e-mail:</label>
+      <input class="input-xlarge" type="email" name="email" id="email" placeholder="Digite um e-mail válido" required>
+    </div>
+
+    <div class="linha row">
+      <label for="celular" class="pergunta">Qual o número do seu celular?</label>
+      
+      <div class="input-prepend">
+  <div class="btn-group">
+    <button id="operadora-botao" class="btn dropdown-toggle" data-toggle="dropdown">
+      Operadora
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" id="operadora">
+        <li><a href="#"><label style="margin: 0"><input type="radio" name="operadora" value="1" style="display: none">Tim</label></a></li>
+        <li><a href="#"><label style="margin: 0"><input type="radio" name="operadora" value="2" style="display: none">Oi</label></a></li>      
+        <li><a href="#"><label style="margin: 0"><input type="radio" name="operadora" value="3" style="display: none">Claro</label></a></li>      
+        <li><a href="#"><label style="margin: 0"><input type="radio" name="operadora" value="4" style="display: none">Vivo</label></a></li>      
+        <li><a href="#"><label style="margin: 0"><input type="radio" name="operadora" value="5" style="display: none">Nextel</label></a></li>
+    </ul>
+  </div>
+  <input type="text" name="celular" class="input-medium" data-mask="(99) 9999-9999" placeholder="(81) 1234-5678" id="celular">
+</div>
+    </div>
+
+    <div class="linha row">
+      <label for="facebook" class="pergunta">Qual é o seu Facebook?</label>
+      <input type="url" name="facebook" placeholder="http://www.facebook.com/voce" class="input-xlarge" id="facebook">
+    </div>
+
+
+    <div class="linha row" id="tamanhos">
+      <label for="tamanhos" class="pergunta">Quantas camisas você quer?</label>
+
+      <div class="row">
+        <div class="span2 camisa">
+          <label for="quantidade-1"><h2>P</h2></label>
+          <input type="number" name="camisa_1" id="quantidade-1" min="0" value="0">
+        </div>
+      
+        <div class="span2 camisa">
+          <label for="quantidade-2"><h2>M</h2></label>
+          <input type="number" name="camisa_2" id="quantidade-2" min="0" value="0">
+        </div>
+      
+        <div class="span2 camisa">
+          <label for="quantidade-3"><h2>G</h2></label>
+          <input type="number" name="camisa_3" id="quantidade-3" min="0" value="0">
+        </div>
+      </div>
+    </div>
+
+    <div class="linha row">
+      <label class="pergunta">Em qual conta voce efetuou o pagamento?</label>
+      
+
+<label class="radio"><input type="radio" name="conta" value="1" required> Conta de Malu [Bradesco] </label>
+<label class="radio"><input type="radio" name="conta" value="2"> Conta de Malu [Santander]</label>
+<label class="radio"><input type="radio" name="conta" value="3"> Conta de Malu [BB]</label>
+<label class="radio"><input type="radio" name="conta" value="4"> Conta de Gisely [BB]</label>
+    </div>
+
+    <div class="linha row">
+      <p class="pergunta">
+        Anexe aqui o arquivo do comprovante de deposito em alguma das contas, onde voce efetuou o pagamento.
+      </p>
+      <p>Caso voce tenha feito o pagamento por deposito em envelope, só será confirmado, apos confirmacao do banco</p>
+
+      <input id="lefile" type="file" style="display:none">
+      <div class="input-append">
+         <div class="uneditable-input span3"><i class="icon-file fileupload-exists"></i> <span class="fileupload-preview" id="photoCover">Nenhum arquivo selecionado</span></div>
+         <a class="btn" onclick="$('input[id=lefile]').click();">Selecionar...</a>
+      </div>
+
+    </div>
+
+    <div class="linha-b row">
+      <input type="submit" class="btn btn-large btn-soci-laranja" value="Finalizar Pedido">
+    </div>
+  </form>
+    </div>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-inputmask.js"></script>
+
+ 
+    <script type="text/javascript">
+    $('#operadora a').click(function(e){
+      $("#operadora-botao").text($(this).text());
+    });
+
+
+    $('input[id=lefile]').change(function() {
+       $('#photoCover').text($(this).val().replace("C:\\fakepath\\", ""));
+       $
+    });
+    </script>
+  </body>
+</html>
